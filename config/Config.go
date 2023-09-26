@@ -23,6 +23,14 @@ func Init(mode string) error {
 	return ReadFilesInConfDir(confDir, mode)
 }
 
+func InitWithConfDir(mode string, confDir string) error {
+	if mode != "development" && mode != "production" {
+		return errors.New("Mode is invalid")
+	}
+	fmt.Println("Config directory: " + confDir)
+	return ReadFilesInConfDir(confDir, mode)
+}
+
 func ReadFilesInConfDir(confDir string, mode string) error {
 	confContents := ""
 	err := filepath.Walk(confDir, func(path string, info os.FileInfo, err error) error {

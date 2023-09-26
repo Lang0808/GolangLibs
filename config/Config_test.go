@@ -13,3 +13,7 @@ func TestGetProjectRoot(t *testing.T) {
 func TestInit(t *testing.T) {
 	config.Init("development")
 }
+
+func TestInitWithConfDir(t *testing.T){
+	config.InitWithConfDir("development", "../conf/")
+}

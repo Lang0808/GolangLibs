@@ -10,4 +10,5 @@ type LogEntry struct {
 	params map[string]interface{}
 
 	extParams map[string]interface{}
+	
 }
