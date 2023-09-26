@@ -1,14 +1,13 @@
 package log // import "github.com/Lang0808/GolangLibs/log"
 
 type LogEntry struct {
-	cmdId int16
+	CmdId int16
 
-	srcId int32
+	SrcId int32
 
-	execTime int64
+	ExecTime int64
 
-	params map[string]interface{}
+	Params map[string]interface{}
 
-	extParams map[string]interface{}
-	
+	ExtParams map[string]interface{}
 }
