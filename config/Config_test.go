@@ -14,6 +14,6 @@ func TestInit(t *testing.T) {
 	config.Init("development")
 }
 
-func TestInitWithConfDir(t *testing.T){
+func TestInitWithConfDir(t *testing.T) {
 	config.InitWithConfDir("development", "../conf/")
 }

@@ -69,3 +69,7 @@ func GetProjectRoot() string {
 	d := path.Join(path.Dir(b))
 	return filepath.Dir(d)
 }
+
+func GetString(key string) string {
+	return viper.GetString(key)
+}

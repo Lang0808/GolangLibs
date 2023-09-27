@@ -1,0 +1,5 @@
+log:
+  info:
+    dir: /data/log/GolangLibs/GolangLibs.log
+  error: 
+    dir: /data/log/GolangLibs/GolangLibs_error.log

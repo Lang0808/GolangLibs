@@ -5,7 +5,8 @@ import (
 	"errors"
 	"os"
 
-	"github.com/spf13/viper"
+	"github.com/Lang0808/GolangLibs/config"
+	"github.com/Lang0808/GolangLibs/file"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
@@ -17,19 +18,19 @@ func InitLog() error {
 	var fileError *os.File
 	var err error
 
-	logInfoDir := viper.GetString("log.info.dir")
-	logErrorDir := viper.GetString("log.error.dir")
+	logInfoDir := config.GetString("log.info.dir")
+	logErrorDir := config.GetString("log.error.dir")
 
 	if logInfoDir == "" || logErrorDir == "" {
 		return errors.New("log.info.dir or log.error.dir is not specified in config")
 	}
 
-	fileInfo, err = os.OpenFile(logInfoDir, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	fileInfo, err = file.OpenOrCreateFile(logInfoDir)
 	if err != nil {
 		return err
 	}
 
-	fileError, err = os.OpenFile(logErrorDir, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	fileError, err = file.OpenOrCreateFile(logErrorDir)
 	if err != nil {
 		return err
 	}
@@ -72,5 +73,5 @@ func Entry(logEntry LogEntry) {
 
 func Info(message string) {
 	defer logger.Sync()
-	logger.Error(message)
+	logger.Info(message)
 }
