@@ -33,4 +33,7 @@ jobs:
           git config user.email "github-actions@users.noreply.github.com"
           git tag $NEW_TAG
           git push origin $NEW_TAG  
+      - name: Deploy GolangLibs Module
+        run: |
+          GOPROXY=proxy.golang.org go list -m github.com/Lang0808/GolangLibs@$NEW_TAG
     
