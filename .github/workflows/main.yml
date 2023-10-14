@@ -1,0 +1,24 @@
+name: deploy-golanglibs
+run-name: ${{ github.actor }} is deploying new version of golanglibs
+on:
+  push:
+    branches:
+      - master
+jobs:
+  readVersion:
+    name: read-libs-version
+    runs-on: ubuntu-latest
+    steps:
+      - id: set_var
+        run: |
+          content=`cat version.json`
+          # the following lines are only required for multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "::set-output name=packageJson::$content"
+      - run: |
+          echo "${{fromJson(steps.set_var.outputs.packageJson).version}}"
+  
+    
