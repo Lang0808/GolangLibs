@@ -18,6 +18,7 @@ func TestCreateJWTToke(t *testing.T) {
 	}{
 		{"Test1", "sasounxiuqwwqbxiywq"},
 		{"Test2", "qwkuxqywqxutvudeq"},
+		{"Test3", "213214241232132142132132"},
 	}
 	for _, test := range list_test {
 		t.Run(test.desc, func(t *testing.T) {
