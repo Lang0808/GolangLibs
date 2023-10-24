@@ -3,7 +3,7 @@ package log // import "github.com/Lang0808/GolangLibs/log"
 type LogEntry struct {
 	CmdId int16
 
-	SrcId int32
+	SrcId string
 
 	ExecTime int64
 
