@@ -22,6 +22,7 @@ func init() {
 
 // Parse time from string to int64 using layout, in time zone GMT+7
 // Ex: Layout = "DD/MM/YYYY hh:mm:ss" and t = "07/12/2023 09:58:07", returns 1701917887000
+// cpommit
 func Parse(t string, layout string) (int64, error) {
 	newLayout := layout
 	for key, value := range symbol2Value {
