@@ -11,3 +11,10 @@ type LogEntry struct {
 
 	ExtParams map[string]interface{}
 }
+
+func PrintError(err error) string {
+	if err == nil {
+		return "nil"
+	}
+	return err.Error()
+}
