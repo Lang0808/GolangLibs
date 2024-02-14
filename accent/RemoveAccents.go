@@ -9,6 +9,7 @@ import (
 	"golang.org/x/text/unicode/norm"
 )
 
+// Remove Vietnamese Accent in string
 func RemoveAccent(s string) string {
 	s = strings.ReplaceAll(s, "Đ", "D") // Don't know why Đ|đ cannot be transformed to D|d so we need to use this
 	s = strings.ReplaceAll(s, "đ", "d")
